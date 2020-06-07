@@ -1,7 +1,16 @@
 // listen for submit
-document.getElementById('loan-form').addEventListener('submit' , calResult);
+document.getElementById('loan-form').addEventListener('submit' , function(e){
+// Hide result
+document.getElementById('result').style.display = 'none';
 
-function calResult(e){
+// Show loader
+document.getElementById('loading').style.display = 'block';
+setTimeout(calResult, 1000);
+
+  e.preventDefault();
+});
+
+function calResult(){
 // console.log('Calculating...')
 
 // UI vars
@@ -30,11 +39,17 @@ if(isFinite(monthly)){
   monthlyPayment.value = monthly.toFixed(2);//to get 2 decimal 
   totalPayment.value = (monthly * calculatedPayment).toFixed(2);
   totalInterest.value = ((monthly * calculatedPayment)-principal).toFixed(2);
+// show result
+  document.getElementById('result').style.display = 'block';
+  // Hide loader
+  document.getElementById('loading').style.display = 'none';
+
 } else{
 showError('Please check your numbers');
 
 }
-  e.preventDefault();
+
+ 
 }
 //show the error
 function showError(error){
@@ -54,6 +69,11 @@ function showError(error){
   card.insertBefore(errorDiv, heading);
   //6- Clear error
   setTimeout(clearError, 2000);
+
+  // show result
+  document.getElementById('result').style.display = 'none';
+  // Hide loader
+  document.getElementById('loading').style.display = 'none';
 };
 //7- Make clearError
 function clearError(){

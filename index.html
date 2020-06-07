@@ -9,11 +9,17 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-  <title>Hello, world!</title>
+<style>
+  #loading , #result{
+    display: none;
+  }
+  body { background-image: url(img/cool-background.png);}
+</style>
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+  <title>Loan Calculator</title>
 </head>
 
-<body style="background-color: rgb(33, 139, 139);">
+<body>
   <div class="container">
     <div class="row">
       <!-- mx auto keeps everything in the middle -->
@@ -43,9 +49,9 @@
             </div>
           </form>
           <!--Loader-->
-          <!-- <div id="loading">
+          <div id="loading">
             <img src="img/load.gif" alt="">
-          </div> -->
+          </div>
           <!--Result-->
           <div id="result" class="pt-4">
             <h5>Result</h5>
